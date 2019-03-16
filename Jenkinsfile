@@ -28,6 +28,14 @@ pipeline {
             }
         }
         
+        stage ('Verify Stage'){
+            steps{
+                withMaven(maven: 'localMAVEN'){
+                    sh 'mvn verify'
+                }
+            }
+        }
+        
 
         stage ('Deployment Stage') {
             steps {
